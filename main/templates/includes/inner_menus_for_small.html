@@ -1,0 +1,13 @@
+{% if user.is_staff %}
+<li><a href="/"><i class="fa fa-edit"></i><span class="menu">&nbsp;Posts</span></a></li>
+{% endif %}
+<li class="divider"></li>
+<li><a class="profile left-bar-menu {% if pagename == 'profile' %}active{% endif %}" data-action="profile" href="#"><i class="fa fa-shield"></i><span class="menu">&nbsp;Configurações Pessoais</span><span class="control hide-for-small"></span></a></li>
+<li><a class="left-bar-menu {% if pagename == 'calendar' %}active{% endif %}" data-action="calendar" href="#"><i class="fa fa-calendar"></i><span class="menu">&nbsp;Agenda</span><span class="control hide-for-small"></span></a></li>
+<li><a class="left-bar-menu" data-action="messages" href="#"><i class="fa fa-comments"></i><span class="menu">&nbsp;Bate-papo</span></a></li>
+<li><a class="left-bar-menu" data-action="billing" href="#"><i class="fa fa-dashboard"></i><span class="menu">&nbsp;Histórico Faturas</span></a></li>
+<!-- <li><a href="/s/docs/"><i class="icon-file-text"></i><span class="menu">Docs</span></a></li>
+<li><a href="/s/links/"><i class="icon-link"></i><span class="menu">Links</span></a></li>
+<li><a href="/profile/"><i class="icon-user"></i><span class="menu">Profile</span></a></li> -->
+<li class="divider"></li>
+<li class="logout"><a href="/logout/"><i class="fa fa-power-off"></i><span class="menu">&nbsp;Sair</span></a></li>

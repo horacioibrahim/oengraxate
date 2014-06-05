@@ -1,0 +1,32 @@
+{% extends 'services/base.html' %}
+
+
+{% block content %}
+            <!-- content: Pages [begin] -->
+    <div id="article" class="content-pages">
+      <div class="row">
+        <div class="small-9 small-centered columns">
+          <h3>Registro realizado com sucesso!<br />
+          </h3>
+          <div class="row">
+            <div class="small-12 columns">
+              <div class="splash-pages">
+
+              </div>
+                <br />
+                <p>Confirme seu cadastro. Uma mensagem foi enviada para seu e-mail por noreply@oengraxate.com. Esse e-mail
+                contém um link para confirmar seu cadastrado. <br /><small>Nos preocupamos com a segurança dos nossos clientes,
+                    por isso, essa etapa de confirmação é necessário para evitar falsos cadastros.</small></p>
+                <p class="text-right"><a class="button radius positive" href="{% url 'my_login' %}">Entrar agora!</a></p>
+
+            </div>
+          </div>
+        </div>
+        <div class="small-3 columns">
+          <br />
+            <!-- Assuntos relacionados -->
+        </div>
+      </div>
+    </div>
+    <!-- content: Pages [end] -->
+{% endblock %}

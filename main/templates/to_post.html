@@ -1,0 +1,167 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <title>Dashboard::Post in hipy.co by horacioibrahim </title>
+    {% include 'includes/content_head_default.html' %}
+  </head>
+  <body id="pages" class="dashboard">
+    <div class="container">
+        <div class="category-selected"><a href="/"><i class="fa fa-home"></i></a>&nbsp;/&nbsp;Dashboard</div>
+        <!-- left columns -->
+        <div class="small-2 columns sidebar hide-for-small">
+            <ul class="side-nav">
+              {% if user.is_staff %}
+  			  <li class="active"><a href="/"><i class="fa fa-edit"></i><span class="menu">Posts</span></a></li>
+              {% endif %}
+              <li class="divider"></li>
+              <li><a href="/subjects/"><i class="fa fa-shield"></i><span class="menu">Configurações Pessoais</span></a></li>
+              <li><a href="/explorer/"><i class="fa fa-calendar"></i><span class="menu">Agenda</span></a></li>
+  			  <li><a href="/s/photos/"><i class="fa fa-comments"></i><span class="menu">Bate-papo</span></a></li>
+              <li><a href="/subjects/"><i class="fa fa-dashboard"></i><span class="menu">Histórico Faturas</span></a></li>
+  			  <!-- <li><a href="/s/docs/"><i class="icon-file-text"></i><span class="menu">Docs</span></a></li>
+  			  <li><a href="/s/links/"><i class="icon-link"></i><span class="menu">Links</span></a></li>
+  			  <li><a href="/profile/"><i class="icon-user"></i><span class="menu">Profile</span></a></li> -->
+              <li class="divider"></li>
+              <li class="logout"><a href="/logout/"><i class="fa fa-power-off"></i><span class="menu">&nbsp;Sair</span></a></li>
+  			</ul>
+        </div>
+        <!-- right columns -->
+        <!-- post section in dashboard: this include -->
+        <div class="small-10 columns posts">
+            <div class="row">
+                <div class="small-10 small-centered columns workplace">
+                    <button id="toggle-post" class="button tiny radius secondary"><i class="fa fa-edit"></i>&nbsp;New post</button>
+                    <div id="form-post" class="panel hide">
+                    <form action="." method="post" id="post-document">
+                        {% csrf_token %}
+                        <input type="hidden" name="oid" value=""/>
+                      <div class="row">
+                        <div class="large-12 columns">
+                          <label>Title
+                            <input type="text" placeholder="Title" name="title" />
+                          </label>
+                            <label>
+                                <span class="subheader">slug: </span><small id="slug"></small></span>
+                                <input id="remake_slug" type="checkbox" name="remake_slug" value="1">
+                                <small class="help-text">Try again make slug</small>
+                            </label>
+
+                          <label>Subtitle (optional)
+                            <input type="text" placeholder="Subtitle" name="subtitle" />
+                          </label>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="large-6 columns">
+                          <label>Main Category (strategy category)
+                            <select name="categories">
+                              <option value="Why" >Why</option>
+                              <option value="How" >How</option>
+                              <option value="Planos">Planos</option>
+                              <option value="Jurídico">Jurídico</option>
+                              <option value="Blog">Blog</option>
+                              <option value="Imprensa">Imprensa</option>
+                            </select>
+                          </label>
+                        </div>
+                        <div class="large-6 columns">
+                              <label>Choose Your Type Post</label>
+                              <div id="type_post">
+                                <input type="radio" name="type_post" value="TextPost" id="TextPost" checked><label for="TextPost">Text</label>
+                                <input type="radio" name="type_post" value="ImagePost" id="ImagePost"><label for="ImagePost">Image</label>
+                                <input type="radio" name="type_post" value="PodcastPost" id="PodcastPost"><label for="PodcastPost">Podcast</label>
+                                <input type="radio" name="type_post" value="LinkPost" id="LinkPost"><label for="LinkPost">Link</label>
+                              </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="large-12 columns">
+                          <label>Content (html tags permitted)
+                            <textarea class="content_area" placeholder="Content" name="content"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="large-4 columns">
+                          <label>Tags (comma separeted)
+                            <input type="text" placeholder="tags1, tags2, tags3" name="tags" />
+                          </label>
+                        </div>
+                        <div class="large-3 columns">
+                              <label>Publish?</label>
+                              <input id="published" type="checkbox" name="published" value="1" checked><label for="published">Yes, now.</label>
+                        </div>
+                        <div class="large-5 columns">
+                              <label>Choose Your Type Post</label>
+                              <div id="priority_show">
+                                  <input type="radio" name="priority_show" value="1" id="one" checked><label for="one">Low</label>
+                                  <input type="radio" name="priority_show" value="2" id="two"><label for="two">Normal</label>
+                                  <input type="radio" name="priority_show" value="3" id="three"><label for="three">High</label>
+                              </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                            <div class="small-4 columns">
+                                <a id="btn_reschedule"><small>Reschedule?</small></a>
+                                <label id="reschedule" class="hide">Schedule
+                                    <input type="text" placeholder="e.g: d/m/yyyy" name="reschedule" value="" />
+                                </label>
+                            </div>
+                      </div>
+                      <div class="row">
+                          <div class="small-8 columns">
+                                <button id="btn_post_update" class="button expand">Postar</button>
+                          </div>
+                          <div class="small-4 columns">
+                              <noscript>
+                                <span class="label alert">Browser não suporta javascript. <br />Se usar o Reset pode dá merda!</span>
+                              </noscript>
+                              <input type="reset" class="button secondary expand" value="Reset">
+                          </div>
+                      </div>
+                    </form>
+                    </div>
+                    <div class="menu">
+                            <!-- header list posts -->
+                            <div class="status active_is">Status</div>
+                            <div class="content">Content</div>
+                            <div class="status comments">Comments</div>
+                            <div class="status views">Views</div>
+                            <div class="status published">Published</div>
+                    </div>
+                    <!-- loop for posts resumes -->
+                    <div class="resumes">
+                        {% for post in posts %}
+                        <div class="posts-items small-12 columns">
+                            <div class="status">
+                                {% if post.published %}
+                                <i class="fa fa-circle"></i>
+                                {% else %}
+                                <i class="fa fa-circle-o"></i>
+                                {% endif %}
+                            </div>
+                            <div class="content">
+                                <strong class="post-title"><a class="objAjaxGetValues" data-oid="{{ post.id }}" href="{% url 'ajax_get_post' post.id %}">{{ post.title }}</a><small>&nbsp;{{ post.categories.0.name }}</small></strong>
+                                <p class="subheader">{% if post.content %}{{ post.content|safe|truncatewords:10 }}{% endif %}
+                                </p>
+                            </div>
+                            <div class="status text-center"><a href="{% url 'post_delete' post.id %}" class="label tiny alert round">x<a></div>
+                            <div class="status text-center">4</div>
+                            <div class="status text-center">{{ post.update_at|date:"d/M"|lower }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- content: Pages [begin] -->
+
+    <div class="content-pages">
+    </div>
+
+
+  {% include 'includes/assets_pos_loaded.html' %}
+  </body>
+</html>

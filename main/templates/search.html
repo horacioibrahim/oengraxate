@@ -1,0 +1,64 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <title>Search in hipy.co by horacioibrahim </title>
+    {% include 'includes/content_head_default.html' %}
+  </head>
+  <body id="pages" class="posts-by-categories">
+    <div class="category-selected"><a
+            href="/"><i class="fa fa-home"></i></a>&nbsp;/&nbsp;
+        Resultados para: <strong>{{ terms }}</strong> - <span class="subheader">{{ stats.nfound }} resultado{{ stats.nfound|pluralize }} in {{ stats.timeMicros }} segundos</span></div>
+    <!-- content: Pages [begin] -->
+
+    <div class="content-pages">
+    {% for post in posts %}
+
+    <div class="row">
+      <div class="small-2 columns">&nbsp;</div>
+      <div class="small-8 columns post-line">
+        <h4><a href="{% if post.obj.slug %}{% url 'post_view' post.obj.slug %}{% else %}#{% endif %}">
+            {{ post.obj.title }}</a>
+          <small>{{ post.obj.subtitle }}</small>
+        </h4>
+        <div class="content-post">
+          <!-- Check the content: if image, link or text (truncate) -->
+            {% autoescape off %}
+            {{ post.obj.content|truncatechars:120 }}
+            {{ post.obj.link_url }}
+            {{ post.obj.image_path }}
+            {% endautoescape %}
+            {% if post.obj.tags %}
+            <ul class="inline-list tags">
+                <li>{{ post.obj.created_at|date:"d/M"|lower }}</li>
+                <li class="date"></li>
+                <li>tags:</li>
+                {% for tag in post.obj.tags %}
+                    <li><a href="/s/{{ tag }}">{{ tag }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif  %}
+        </div>
+      </div>
+      <div class="small-2 columns">&nbsp;</div>
+    </div>
+
+    {% endfor %}
+    </div>
+    <!-- content: Pages [end] -->
+
+    <!-- content: footer [begin] 
+    <br /><br />
+    <div class="footer footer-links">
+      <div class="row">
+        <div class="large-12 columns">
+          <h1>Papy</h1><br />
+          
+        </div>
+      </div>
+    </div> 
+    <!-- content: projects [end] -->
+
+
+  {% include 'includes/assets_pos_loaded.html' %}
+  </body>
+</html>

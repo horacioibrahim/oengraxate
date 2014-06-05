@@ -1,0 +1,33 @@
+{% extends 'services/base.html' %}
+
+
+{% block content %}
+            <!-- content: Pages [begin] -->
+    <div id="article" class="content-pages">
+      <div class="row">
+        <div class="small-9 small-centered columns">
+          <h3>Usuário já existe. Tente novamente!<br />
+          </h3>
+          <div class="row">
+            <div class="small-12 columns">
+              <div class="splash-pages">
+
+              </div>
+                <br />
+                <!-- test string: username already exists -->
+                <p>O usuário já existe no OEngraxate.com.
+                    <a href="{% url 'my_register' %}">Clique aqui</a>
+                    para tentar novamente com um nome de usuário diferente ou
+                    caso seja você o usuário recupere sua senha na opção abaixo.</p>
+                <p class="text-right"><a class="button radius default" href="{% url 'my_login' %}">Recuperar Senha</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="small-3 columns">
+          <br />
+            <!-- Assuntos relacionados -->
+        </div>
+      </div>
+    </div>
+    <!-- content: Pages [end] -->
+{% endblock %}

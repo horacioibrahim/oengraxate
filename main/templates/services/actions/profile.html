@@ -1,0 +1,45 @@
+{% extends "services/dashboard.html" %}
+
+{% block inner_dashboard %}
+            <div id="return" data-page="{{ pagename }}" style="padding: 10px;">
+            <h5><strong>Configurações Pessoais</strong></h5>
+            <hr />
+            <form class="">
+                <div class="row">
+                    <div class="small-12 large-6 columns">
+                        <label for="id_first_name">Nome:</label>
+                        <input id="id_first_name" name="first_name" type="text">
+                    </div>
+                    <div class="small-12 large-6 columns">
+                        <label for="id_last_name">Sobrenome:</label>
+                        <input id="id_last_name" name="last_name" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 large-6 columns">
+                        <label for="id_username">Usuário:</label>
+                        <input id="id_username" maxlength="30" name="username" type="text">
+                    </div>
+                    <div class="small-12 large-6 columns">
+                        <label for="id_email">Email:</label>
+                        <input id="id_email" name="email" type="email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 large-6 columns">
+                        <label for="id_password">Senha:</label>
+                        <input id="id_password" name="password" type="password">
+                    </div>
+                    <div class="small-12 large-6 columns">
+                        <label for="id_password2">Confirmar Senha:</label>
+                        <input id="id_password2" name="password2" type="password">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 large-6 large-offset-6 columns">
+                        <button class="expand button radius positive">Salvar</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+{% endblock %}

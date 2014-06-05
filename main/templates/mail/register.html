@@ -1,0 +1,10 @@
+{% extends "mail/base.html" %}
+{% block title_mail %}
+    Olá! Está chegando o dia de cuidar dos seus sapatos.
+{% endblock title_mail %}
+
+{% block main %}
+    {{ user }} o tratamento para os seus sapatos está marcado para {{ scheduled }}. Você pode confirmar a visita ao OEngraxate.com.
+     <br />
+     <a id="confirmation" href="{{ site }}/{{ url_scheduled_confirmation }}">Confirmar horário</a>
+{% endblock %}

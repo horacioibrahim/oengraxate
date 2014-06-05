@@ -1,0 +1,103 @@
+{% extends "services/base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <!-- content: Pages [begin] -->
+    <div id="article" class="content-pages">
+      <div class="row">
+        <div class="small-9 small-centered columns">
+          <h3>Detalhes do Pedido<br />
+          </h3>
+          <form action="." method="post" id="payment-form">
+              {% csrf_token %}
+              <div class="row">
+                <div class="small-12 columns">
+                    <br />
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <td width="70%"><h5>{{ product.short_name }} - {{ product.fullname }}<br />
+                                    <small>{{ product.short_description }}</small></h5></td>
+                                <td width="10%">&nbsp;</td>
+                                <td width="20%" class="text-right">{{ product.price }}</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>Total:</td>
+                                <td class="text-right"><strong>{{ product.price }}</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+              <div clas="row">
+                  <div class="row">
+                      <div class="small-12 columns">
+                          <hr />
+                         <p class="text-center creditcard-logos"><img src="{% static 'img/creditcard-logos-small.png' %}" width="" /></p>
+                      </div>
+                  </div>
+                  <div class="row">
+                        <div class="small-12 large-7 columns">
+                              <!--paymanet form -->
+                              <div class="row">
+                                  <h6>Dados do cartão</h6>
+                                  {% for field in form %}
+                                  <div class="small-12 large-3 columns">
+                                      <label for="{{ field.id_for_label }}" class="right inline">{{ field.label }}</label>
+                                  </div>
+                                  {% if field.name == 'dt_expire_month' or field.name == 'dt_expire_year' %}
+                                  <div class="small-12 large-3 columns">
+                                          {{ field }}
+                                  </div>
+                                  {% else %}
+                                  <div class="small-12 large-9 columns">
+                                      {{ field }}
+                                  </div>
+                                  {% endif %}
+                                  {% endfor %}
+                                  <input type="hidden" id="expiration" data-iugu="expiration" value="" />
+                              </div>
+                        </div>
+                        <div class="small-12 large-5 columns">
+                                <br />
+                              <p class="payment-msg-security">
+                               <img src="{% static 'img/secure_lock.png' %}">&nbsp;<strong>Compra segura</strong><br />
+                               Seus dados de pagamento são criptografados antes da
+                               transferência. Para sua segurança o Engraxate.com
+                               não salva seus dados que são enviados ao nosso parceiro
+                               Iugu.com. Esse é uma entidade segura em acordo com os
+                               padrões mundiais denominado PCI Compliance e autorizado pelos
+                               órgãos competentes como sistema de pagamentos. Seus dados
+                               de pagamento poderão ser gerenciados nas configurações
+                               de sua conta.
+                              </p>
+                        </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <hr />
+                  <div class="small-12 columns">
+                    <p class="text-right">
+                        <button class="button radius positive" href="#">Confirmar Pedido</button>
+                    </p>
+                  </div>
+              </div>
+          </form>
+    <div class="token-area">
+        <label for="token">Token do Cartão de Crédito - Enviar para seu Servidor</label>
+        <input type="text" name="token" id="token" value="" readonly="true" size="64" style="text-align:center" />
+    </div>
+
+        </div>
+        <div class="small-3 columns">
+          <br />
+            <!-- Assuntos relacionados -->
+        </div>
+      </div>
+    </div>
+    <!-- content: Pages [end] -->
+{% endblock %}
+{% block custom_last_call %}
+        <script type="text/javascript" src="https://js.iugu.com/v1"></script>
+        <script type="text/javascript" src="{% static 'js/payment_iugu.js' %}"></script>
+{% endblock %}

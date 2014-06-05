@@ -1,0 +1,22 @@
+{% extends "mail/base.html" %}
+{% block title_mail %}
+    Obrigado pelo seu interesse no OEngraxate.com!
+{% endblock title_mail %}
+
+{% block main %}
+<p>
+Recebemos em nossa página seu endereço de e-mail por está interessado nos serviços
+do OEngraxate.com. Ficamos bem felizes por isso!
+<br /><br />
+Agora é preciso que você confirme o seu email pelo link abaixo:<br />
+{{ link_confirmation }}
+<br/><br/>
+Atenciosamente,<br />
+Equipe OEngraxate.com
+<br/><br/>
+<small>Caso não deseje receber informações sobre OEngraxate.com ou não tenha
+sido você que cadastrou este e-mail <a href="{{ link_cancel_subscribe }}">Cancele Aqui</a>
+a inscrição dessa lista.
+</small>
+</p>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!doctype html>
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <title>O Engraxate - sapatos bem tratados</title>
+    {% include 'includes/content_head_default.html' %}
+    <meta property="og:type" content="article" />
+    <meta property="og:article:author" content="OEngraxate.com" />
+    <meta property="og:article:section" content="Dashboard" />
+    <link rel="stylesheet" href="{% static 'css/vex/vex.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/foundation-datepicker.css' %}">
+    {% block custom_head %}
+    {% endblock %}
+  </head>
+  <body id="services" class="post-view">
+    <!-- topbar: begin  -->
+    <nav class="top-bar hide-for-small" data-topbar>
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="/services/"><img src="{% static 'img/logo_100.png' %}" /></a></h1>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="off-canvas-wrap show-for-small">
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+          </section>
+
+          <section class="middle tab-bar-section">
+            <h1 class="title"><img src="{% static 'img/logo_mobile.png' %}" />&nbsp;O Engraxate.com</h1>
+          </section>
+
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Categorias</label></li>
+            {% include 'includes/inner_menus_for_small.html' %}
+          </ul>
+        </aside>
+
+        <section class="main-section">
+          <!-- content goes here -->
+            <div id="container-content-small" class="mobile-container">
+                <!-- block receptor -->
+
+            </div>
+        </section>
+
+      <a class="exit-off-canvas"></a>
+
+      </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'includes/assets_pos_loaded.html' %}
+    {% block custom_last_call %}
+    {% endblock %}
+  </body>
+</html>

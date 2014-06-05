@@ -1,0 +1,4 @@
+Obrigado por se registrar no OEngraxate.com!
+
+Olá, {{ user }} o OEngraxate.com atualmente dispõe seus serviços na Esplanada
+dos Ministérios, em Brasília, Distrito Federal.

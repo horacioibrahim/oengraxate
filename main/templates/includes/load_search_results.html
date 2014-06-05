@@ -1,0 +1,31 @@
+{% for post in posts %}
+
+    <div class="row">
+      <div class="small-2 columns">&nbsp;</div>
+      <div class="small-8 columns post-line">
+        <h4><a href="{% url 'post_view' post.obj.slug %}">{{ post.title }}</a>
+          <small>{{ post.obj.subtitle }}</small>
+        </h4>
+        <div class="content-post">
+          <!-- Check the content: if image, link or text (truncate) -->
+            {% autoescape off %}
+            {{ post.obj.content|truncatechars:120 }}
+            {{ post.obj.link_url }}
+            {{ post.obj.image_path }}
+            {% endautoescape %}
+            {% if post.obj.tags %}
+            <ul class="inline-list tags">
+                <li>{{ post.obj.created_at|date:"d/M"|lower }}</li>
+                <li class="date"></li>
+                <li>tags:</li>
+                {% for tag in post.obj.tags %}
+                    <li><a href="/s/{{ tag }}">{{ tag }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif  %}
+        </div>
+      </div>
+      <div class="small-2 columns">&nbsp;</div>
+    </div>
+
+{% endfor %}

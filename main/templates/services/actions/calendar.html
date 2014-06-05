@@ -1,0 +1,20 @@
+{% extends "services/dashboard.html" %}
+
+{% block inner_dashboard %}
+<div id="return" data-page="{{ pagename }}" style="padding: 10px;">
+<p>Agende os dias para sua visita ao O Engraxate, conforme o seu plano.</p>
+<div class="panel">
+    <table class="table">
+        <thead>
+            <tr>
+                {% for appointments in user.last_order %}
+                <th>Check in:
+                    <input type="text" class="span2" value="" id="dpd1">
+                </th>
+                {% endfor %}
+            </tr>
+        </thead>
+    </table>
+</div>
+</div>
+{% endblock %}

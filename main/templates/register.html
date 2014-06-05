@@ -1,0 +1,76 @@
+{% extends 'services/base.html' %}
+
+
+{% block content %}
+            <!-- content: Pages [begin] -->
+    <div id="article" class="content-pages">
+      <div class="row">
+        <div class="small-9 small-centered columns">
+            <br />
+            <div class="small-12 large-6 columns">
+                  <h3>Registrar-se agora<br />
+                  </h3>
+                    <strong>Seus dados para acesso</strong>
+                    <br /><br />
+                    <form action="/register/" method="post" id="register">
+                      {% csrf_token %}
+                      <div class="row">
+                        <div class="small-12 large-12 columns panel">
+                              <label>Nome
+                                <input id="id_first_name" placeholder="nome" name="first_name" type="text">
+                              </label>
+                              <label>Sobrenome
+                                <input id="id_last_name" placeholder="sobrenome" name="last_name" type="text">
+                              </label>
+                              <label>Username
+                                <input id="id_username" placeholder="username" maxlength="30" name="username" type="text">
+                              </label>
+                              <label>E-mail
+                                <input id="id_email" placeholder="email" name="email" type="email">
+                              </label>
+                              <label>Senha
+                                <input id="id_password" placeholder="senha" name="password" type="password">
+                              </label>
+                              <button class="button radius positive right">Criar conta</button>
+                        </div>
+                      </div>
+                    </form>
+            </div>
+            <div class="small-12 large-6 columns">
+                 <h3>Já é cadastrado?<br />
+                  </h3>
+                    <strong>Acesse sua conta</strong>
+                    <br /><br />
+                <form action="/login/" method="post" id="login">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label>Username
+                                <input type="text" placeholder="username" name="username" />
+                            </label>
+                            <label>Password
+                                <input type="password" placeholder="password" name="password" />
+                            </label>
+                            <button class="button radius secondary right">Entrar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <span class="right"><a href="">Recuperar senhar?</a></span>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="small-3 columns">
+          <br />
+            <!-- Assuntos relacionados -->
+        </div>
+      </div>
+    </div>
+    <!-- content: Pages [end] -->
+{% endblock %}

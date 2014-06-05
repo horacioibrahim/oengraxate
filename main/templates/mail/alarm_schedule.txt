@@ -1,0 +1,5 @@
+Olá! Está chegando o dia de cuidar dos seus sapatos.
+
+{{ user }} o tratamento para os seus sapatos está marcado para {{ scheduled }}. Você pode confirmar a visita ao OEngraxate.com. 
+<a id="confirmation" href="{{ site }}/{{ url_scheduled_confirmation }}">Confirmar horário</a>
+{% block main %}{% endblock %}

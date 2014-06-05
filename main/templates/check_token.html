@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <title>Confirmação de e-mail in hipy.co by horacioibrahim </title>
+    {% include 'includes/content_head_default.html' %}
+  </head>
+  <body id="pages" class="check_token">
+    <!-- content: Pages [begin] -->
+    <div class="content-pages">
+
+        <div class="small-10 small-centered columns">
+            <div class="row">
+                <div class="small-10 small-centered columns">
+                    <h1>Bem-vindo de volta ao <strong>hipy</strong><br /></h1>
+                    <div class="">
+                        <h4>Confirmação de e-mail<br />
+                          <small>Obrigado por confirmar seu interesse no hipy.co</small>
+                        </h4>
+                        <div class="content-post">
+                            <p>Confirmado! Recebi sua confirmação pelo endereço eletrônico <strong>{{ email }}</strong>.
+                            <br />Aqui no <a href="{% url 'homepage' %}">hipy.co</a> desejo compartilhar conhecimentos e curiosidades sobre produtividade pessoal,
+                            negócios e tecnologia.
+                            O propósito desse projeto é incentivar um pensamento livre em busca de uma sociedade mais
+                            eficiente e com mais liberdade, afim de proporcionar qualidade de vida, com tempo para aproveitar
+                            nossa família, atividades de lazer e a desenvolver o espírito. Em resumo: fazer mais com menos!</p>
+                            <p>Comece acessando uma das categorias principais de seu interesse:
+                                <ul class="inline-list">
+                                    {% for category in categories %}
+                                        <li class=""><a href="{% url 'category_posts' category.slug %}">{{ category.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="row">
+      <div class="small-2 columns">&nbsp;</div>
+      <div class="small-8 columns post-line">
+
+      </div>
+      <div class="small-2 columns">&nbsp;</div>
+    </div>
+
+    </div>
+    <!-- content: Pages [end] -->
+
+    <!-- content: footer [begin]
+    <br /><br />
+    <div class="footer footer-links">
+      <div class="row">
+        <div class="large-12 columns">
+          <h1>Papy</h1><br />
+
+        </div>
+      </div>
+    </div>
+    <!-- content: projects [end] -->
+
+
+  {% include 'includes/assets_pos_loaded.html' %}
+  </body>
+</html>

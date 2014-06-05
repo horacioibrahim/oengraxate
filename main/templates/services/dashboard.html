@@ -1,0 +1,25 @@
+{% extends "services/base.html" %}
+
+{% block content %}
+
+    <div class="container dashboard">
+        <div class="row">
+            <!-- left columns -->
+            <div class="large-3 columns sidebar hide-for-small">
+                <ul class="side-nav hide-for-small">
+                  {% include 'includes/inner_menus_for_small.html' %}
+                </ul>
+            </div>
+            <!-- right columns -->
+            <!-- post section in dashboard: this include -->
+            <div class="small-12 large-9 columns posts">
+                    <div id="container-content" class="hide-for-small">
+                    {% block inner_dashboard %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content: Pages [end] -->
+
+{% endblock %}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <title>{{ post.categories.0.id }} | O Engraxate </title>
+    {% include 'includes/content_head_default.html' %}
+    <meta property="og:type" content="article" />
+    <meta property="og:article:author" content="Horacio Ibrahim by hipy.co" />
+    <meta property="og:article:section" content="{{ post.categories.0.name }}" />
+  </head>
+  <body id="pages" class="post-view">
+    <div class="category-selected"><a href="/"><i class="fa fa-home"></i></a>&nbsp;/&nbsp;<a href="{% url 'category_posts' post.categories.0.slug %}">{{ post.categories.0.name }}</a></div>
+    <!-- content: Pages [begin] -->
+    <div id="article" class="content-pages">
+      <div class="row">
+        <div class="small-9 small-centered columns">
+          <h3>{{ post.title }}<br />
+            <small class="subheader">{{ post.subtitle }}</small>
+          </h3>
+          <div class="row">
+            <div class="small-12 columns">
+              <div class="splash-pages">
+                  {% if post.cover %}
+                    <img src="" />
+                  {% endif %}
+              </div>
+                <p>{{ post.created_at|date:"d/M/Y"|lower }} {% if post.update_at > post.created_at %}| Atualizado há: {{ post.update_at|timesince|lower }} {% endif %}
+                </p>
+                {% autoescape off %}
+                  {{ post.content }}
+                {% endautoescape %}
+            </div>
+          </div>
+          {% if post.author %}
+          <div class="row">
+              <div class="small-12 columns">
+                  <div class="signature" style="background: #f9f9f9; margin-top: 20px;">
+                    <hr />
+                    <div class="small-2 columns">
+                        <img src="{% if post.author.avatar %}{{ post.author.avatar }}{% else %}/media/no_avatar.jpg{% endif %}" >
+                    </div>
+                    <div class="small-10 columns">
+                        <h5><strong>{{ post.author.first_name }}&nbsp;{{ post.author.last_name }}</strong></h5>
+                        <p>
+                        {{ post.author.signature }}
+                        </p>
+                    </div>
+                </div>
+              </div>
+          </div>
+          {% endif  %}
+        </div>
+        <div class="small-3 columns">
+          <br />
+            <!-- Assuntos relacionados -->
+        </div>
+      </div>
+    </div>
+    <!-- content: Pages [end] -->
+
+    <!-- content: footer [begin] -->
+    <br /><br />
+
+    <!-- content: projects [end] -->
+
+
+    {% include 'includes/assets_pos_loaded.html' %}
+  </body>
+</html>

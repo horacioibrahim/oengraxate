@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <title>{{ category.pk }} | O Engraxate </title>
+    {% include 'includes/content_head_default.html' %}
+  </head>
+  <body id="pages" class="posts-by-categories">
+    <div class="category-selected"><a href="/"><i class="fa fa-home"></i></a>&nbsp;/&nbsp;{{ category.name }}</div>
+    <!-- content: Pages [begin] -->
+
+    <div class="content-pages">
+    {% for post in posts %}
+
+    <div class="row">
+      <div class="small-2 columns">&nbsp;</div>
+      <div class="small-8 columns post-line">
+        <h4><a href="{% url 'post_view' post.slug %}">{{ post.title }}</a>
+          <small>{{ post.subtitle }}</small>
+        </h4>
+        <div class="content-post">
+          <!-- Check the content: if image, link or text (truncate) -->
+            {% autoescape off %}
+            {{ post.content|truncatechars:120 }}
+            {{ post.link_url }}
+            {{ post.image_path }}
+            {% endautoescape %}
+            {% if post.tags %}
+            <ul class="inline-list tags">
+                <li>{{ post.created_at|date:"d/M"|lower }}</li>
+                <li class="date"></li>
+                <li>tags:</li>
+                {% for tag in post.tags %}
+                    <li><a href="/s/{{ tag }}">{{ tag }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif  %}
+        </div>
+      </div>
+      <div class="small-2 columns">&nbsp;</div>
+    </div>
+
+    {% endfor %}
+    </div>
+    <!-- content: Pages [end] -->
+
+    <!-- content: footer [begin] 
+    <br /><br />
+    <div class="footer footer-links">
+      <div class="row">
+        <div class="large-12 columns">
+          <h1>Papy</h1><br />
+          
+        </div>
+      </div>
+    </div> 
+    <!-- content: projects [end] -->
+
+
+  {% include 'includes/assets_pos_loaded.html' %}
+  </body>
+</html>

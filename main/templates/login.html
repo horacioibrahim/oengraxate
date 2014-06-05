@@ -1,0 +1,44 @@
+{% extends 'services/base.html' %}
+
+{% block content %}
+            <!-- content: Pages [begin] -->
+    <div id="article" class="content-pages dashboard">
+      <div class="row">
+        <div class="small-9 small-centered columns">
+            <br />
+            <div class="small-12 large-12 columns">
+                <h3>Entrar no OEngraxate.com</h3>
+                <div class="panel box_shadow clearfix radius">
+                    <form action="/login/" method="post" id="login">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="small-10 large-10 small-centered large-centered columns">
+                                {{ form.errors }}
+                                <label>Username
+                                    <input type="text" placeholder="username" name="username" />
+                                </label>
+                                <label>Password
+                                    <input type="password" placeholder="password" name="password" />
+                                </label>
+                                <button class="button radius positive right">Entrar</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="small-10 large-10 small-centered large-centered columns">
+                                <span class="right"><span><a href="{% url 'password_reset' %}">Esqueceu a senha?</a></span></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="small-3 columns">
+          <br />
+            <!-- Assuntos relacionados -->
+        </div>
+      </div>
+    </div>
+    <!-- content: Pages [end] -->
+{% endblock %}

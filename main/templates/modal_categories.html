@@ -1,0 +1,22 @@
+<!--modal for categories -->
+<div class="row">
+  <div class="small-12 large-12 columns">
+      <br />
+       <dl id="filter-sort" class="sub-nav">
+           {% for category in categories %}
+           <dd class="default">
+               <a class="btn-subjects-flag" data-category="{{ category.slug }}">{{ category.id }}</a>
+               <input id="{{ category.slug }}" type="checkbox" name="categories" value="{{ category.id }}" style="display: none;" />
+           </dd>
+           {% endfor %}
+       </dl>
+  </div>
+</div>
+<!-- modal end  -->
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+{% extends "services/base.html" %}
+
+{% block content %}
+    <!-- content: Pages [begin] -->
+    <div id="article" class="content-pages">
+      <div class="row">
+        <div class="small-9 small-centered columns">
+          <h3>Detalhes do Plano<br />
+          </h3>
+          <form action="." method="post">
+              {% csrf_token %}
+            <input type="hidden" name="sku" value="{{ product.sku }}" />
+            <div class="row">
+            <div class="small-12 columns">
+                <br />
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="70%"><h5>{{ product.short_name }} - {{ product.fullname }}<br />
+                                <small>{{ product.short_description }}</small></h5></td>
+                            <td width="10%">&nbsp;</td>
+                            <td width="20%" class="text-right">{{ product.price }}</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Total:</td>
+                            <td class="text-right"><strong>{{ checkout.total }}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>{{ product.description }}</p>
+                <p class="text-right">
+                    <button class="button radius positive"">Continuar</button>
+                </p>
+
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="small-3 columns">
+          <br />
+            <!-- Assuntos relacionados -->
+        </div>
+      </div>
+    </div>
+    <!-- content: Pages [end] -->
+{% endblock %}

@@ -1,0 +1,13 @@
+Obrigado pelo seu interesse no OEngraxate.com!
+
+Recebemos em nossa página seu endereço de e-mail por está interessado nos serviços
+do OEngraxate.com. Ficamos bem felizes por isso!
+
+Agora é preciso que você confirme o seu email pelo link abaixo:
+{{ link_confirmation }}
+
+Caso não deseje receber informações sobre OEngraxate.com ou não tenha
+sido você que cadastrou este e-mail <a href="{{ link_cancel_subscribe }}">Cancele Aqui</a> a inscrição dessa lista.
+
+Atenciosamente,
+Equipe OEngraxate.com

@@ -1,0 +1,165 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>O Engraxate - sapatos bem tratados</title>
+<style type="text/css">
+a { color: blue !important; text-decoration: underline !important; }
+a:hover { color: #000 !important; text-decoration: underline !important; }
+a:hover#vw { background-color: #CCC !important; text-decoration: none !important; color:#000 !important; }
+a:hover.ff { background-color: #6CF !important; text-decoration: none !important; color:#FFF !important; }
+a#confirmation {
+    color: #FFFFFF !important; text-decoration: none !important;  
+    box-shadow: 0 3px 1px #16a085; 
+    background-color: #40d47e; 
+    -webkit-border-radius: 3px; 
+    border-radius: 3px; 
+    display: inline-block; 
+    cursor: pointer; 
+    font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+    font-weight: normal; 
+    line-height: normal; 
+    margin: 0 0 1.25rem; 
+    position: relative; 
+    text-decoration: none;
+    text-align: center; 
+    padding-top: 1rem; 
+    padding-right: 2rem; 
+    padding-bottom: 1.0625rem; 
+    padding-left: 2rem; 
+    font-size: 1rem; color: white;
+    -webkit-transition: background-color 300ms ease-out; 
+    -moz-transition: background color 300ms ease-out; 
+    transition: background-color 300ms ease-out; 
+    -webkit-appearance: none; 
+    border: none; 
+    font-weight: normal !important; 
+}
+</style>
+</head>
+<body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #FFFFFF;" bgcolor="#FFFFFF" leftmargin="0">
+<!--100% body table-->
+<table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+    <tr>
+        <td>
+            <!--email container-->
+            <table cellspacing="0" border="0" align="center" cellpadding="0" width="624">
+                <tr>
+                    <td>
+                        <!--header-->
+                        <table cellspacing="0" border="0" cellpadding="0" width="624">
+                            <tr>
+                                <td align="center" style="height: 3px; background: #f7f7f7; padding: 10px;">
+                                    <!-- "{% static 'img/mail/logo.png' %}" -->
+                                    <img src="http://localhost:8000/static/img/mail/logo.png" />
+                                    <!--line break-->
+                                    <br />
+                                    <table cellspacing="0" border="0" cellpadding="0" width="624">
+                                        <tr>
+                                            <td valign="top" width="624" style="height: 3px; background: #f7f7f7">
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--/line break-->
+                                </td>
+                            </tr>
+                        </table>
+                        <!--/header-->
+                        <!--email content-->
+                        <table cellspacing="0" border="0" id="email-content" cellpadding="0" width="624">
+                            <tr>
+                                <td>
+                                    <!--section 1-->
+                                    <!--/section 1-->
+                                    <!--line break-->
+                                    <table cellspacing="0" border="0" cellpadding="0" width="624">
+                                        <tr>
+                                            <td height="25" valign="middle" width="624"></td>
+                                        </tr>
+                                    </table>
+                                    <!--/line break-->
+                                    <table cellspacing="0" border="0" cellpadding="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <!--section-->
+                                                <table cellspacing="0" border="0" cellpadding="0" width="100%">
+                                                    <tr>
+                                                        <td valign="top" width="100%">
+                                                            <h2 style="font-size: 24px; font-family: Helvetica, Arial, sans-serif; color: #333 !important;
+                                                                margin-top: 0; margin-bottom: 0;">
+                                                                {% block title_mail %}
+                                                                    O Engraxate.com
+                                                                {% endblock %}
+                                                            </h2>
+                                                            <p style="font-size: 17px; line-height: 24px; font-family: Georgia, 'Times New Roman', Times, serif; color: #333; margin: 0px;">                                                      
+
+                                                                {% block main %}{% endblock %}
+                                                            </p>
+                                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                <tr>
+                                                                    <td><br /><!--<img src="{{ STATIC_URL }}mail/line-break-short.jpg">--></td>
+                                                                </tr>
+                                                            </table>
+                                                            </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td> </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td valign="top">
+                                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                            <tr>
+                                                                                <td height="20"></td>
+                                                                            </tr>
+                                                                        </table>	
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <!--/section-->
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--line break-->
+                                    <table cellspacing="0" border="0" cellpadding="0" width="624">
+                                        <tr>
+                                            <td height="30" valign="middle" width="624" style="height: 3px; background: #f7f7f7">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--/line break-->
+                                    <!--footer-->
+                                    <br />
+                                    <table cellspacing="0" border="0" cellpadding="0" width="624">
+                                        <tr>
+                                            <td>
+                                                <p style="font-size: 17px; line-height: 24px; font-family: Georgia, 'Times New Roman', Times, serif; color: #333; margin: 0px;">
+                                               O Engraxate (<a href="http://oengraxate.com/">oengraxate.com</a>) respeita sua privacidade. Para saber mais, leia nossa política de privacidade online em <a href="http://oengraxate.com/post/politica-de-privacidade/">Política de Privacidade</a> . 
+                                                    <br />
+                                                    <br />
+                                                    <span style="font-size: 14px; line-height: 24px; font-family: Georgia, 'Times New Roman', Times, serif; color: #333; margin: 0px;">O Engraxate - Brasília, DF - 70070-917</span>
+                                                    </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--/footer-->
+                                </td>
+                            </tr>
+                        </table>
+                        <!--/email content-->
+                    </td>
+                </tr>
+            </table>
+            <!--/email container-->
+        </td>
+    </tr>
+</table>
+<!--/100% body table-->
+</body>
+</html>

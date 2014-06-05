@@ -1,0 +1,279 @@
+{% load staticfiles %}
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <title>O Engraxate - sapatos bem tratados </title>
+    {% include 'includes/content_head_default.html' %}
+  </head>
+  <body>
+     <!-- off for small clients. This is beta -->
+
+    <nav class="top-bar hide-for-small" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#" title="hipy is hippie, is freedom, is mine">
+              <!-- cms: logo or text -->
+              <img src="{% static 'img/logo.png' %}" class="logo" />
+              <!-- <strong>hipy</a></strong> -->
+          </h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          {% for category in categories %}
+          <li class="main_menu"><a class="scrollTo" href="{{ category.anchor }}">{{ category.name }}</a></li>
+         {% endfor %}
+          <li class="main_menu"><a class="scrollTo" href="{% url 'my_register' %}"><span class="btn_sign">Entrar</span></a></li>
+          <li class="has-form">
+              <form id="form-search" action="." method="post" >
+                {% csrf_token %}
+                <div class="row collapse">
+                  <div class="large-12 small-12 columns">
+                    <input type="text" name="terms" placeholder="pesquise <enter>">
+                  </div>
+                  </div>
+              </form>
+          </li>
+        </ul>
+      </section>
+    </nav>
+    <!-- </div> to fixed topbar -->
+
+
+    <!-- content: press [begin] -->
+    <div class="off-canvas-wrap show-for-small">
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+          </section>
+
+          <section class="middle tab-bar-section">
+            <h1 class="title"><img src="{% static 'img/logo_mobile.png' %}" />&nbsp;O Engraxate.com</h1>
+          </section>
+
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Categorias</label></li>
+            {% for category in categories %}
+                <li class=""><a class="scrollTo" href="{{ category.anchor }}">{{ category.name }}</a></li>
+            {% endfor %}
+              <li class="main_menu"><a class="scrollTo" href="{% url 'my_login' %}">Entrar</a></li>
+          </ul>
+        </aside>
+
+        <section class="main-section">
+          <!-- content goes here -->
+                {% include 'includes/home_wrapper_for_small.html' %}
+        </section>
+
+      <a class="exit-off-canvas"></a>
+
+      </div>
+    </div>
+
+  <div class="inner_container"> <!-- inner_container -->
+
+         <div class="hide-for-small">
+            {% include 'includes/home_wrapper_for_small.html' %}
+            <div id="ajaxLoadSearch" class="content-pages">
+            </div>
+         </div>
+        <!-- content: press [end] -->
+
+        <!-- latest posts start -->
+        <div id="latest-posts" class="content-latest-post">
+          <div class="row">
+            <div class="small-10 small-centered columns">
+              <h2 class="title text-center">O brilho do seu sapato sob demanda que se encaixa em qualquer agenda.<br />
+                <small class="">Tudo que você precisa para ter seus sapatos conservados e belos. Sem filas! </small>
+              </h2>
+            </div>
+          </div>
+            <div class="row articles">
+                <div class="small-12 medium-12 large-12 columns">
+            <!-- grid -->
+                <br />
+                <ul class="large-block-grid-3 medium-block-grid-2 small-block-grid-1 text-center">
+                    {% for post in posts %}
+                        <li>
+                            <h5>
+                                {{ post.title }}
+                            </h5>
+                            {% autoescape off %}
+                            {{ post.content }}
+                            {{ post.link_url }}
+                            {{ post.image_path }}
+                            {% endautoescape %}
+
+                        </li>
+                    {% endfor %}
+                </ul>
+                </div>
+            </div>
+        </div>
+        <!-- latest posts end -->
+
+        <!-- content: projects [begin] -->
+        <div id="projects" class="content-project">
+          <!-- title projects section  -->
+          <div class="row">
+            <div class="small-10 small-centered columns">
+              <h2 class="title text-center">Como funciona<br />
+                <!-- <small>coding, modelo de negócios, protótipos, raising capital e bootstrapping </small>-->
+              </h2>
+            </div>
+          </div>
+          <br /><br />
+          <div class="row">
+            <!-- gid -->
+
+            <ul class="large-block-grid-3 medium-block-grid-2 small-block-grid-1">
+                <li class="text-center">
+                  <div class="a-logo"><i class="fa fa-list-alt"></i></div>
+                  <h4><span class="round radius label how-steps">1</span>
+                      Escolha seu plano
+                  </h4>
+                  <p class="text-center">
+                    Adequado a sua agenda o plano poderá ser semanal, quinzenal ou mensal. Conforme sua conveniência.
+                  </p>
+                </li>
+                <li class="text-center">
+                  <div class="a-logo"><i class="fa fa-calendar-o"></i></div>
+                  <h4><span class="round radius label how-steps">2</span>
+                      Agende o melhor dia
+                  </h4>
+                  <p class="text-center">
+                    Os compromissos diários mudam a sua agenda. Marque ou desmarque o serviço de acordo com a sua demanda.
+                  </p>
+                </li>
+                <li class="text-center">
+                  <div class="a-logo"><i class="fa fa-credit-card"></i></div>
+                  <h4><span class="round radius label how-steps">3</span>
+                      Assine online
+                  </h4>
+                  <p class="text-center">
+                  Para comodidade o pagamento é realizado em ambiente seguro, criptografado com todos os requisitos de segurança.
+                  </p>
+                </li>
+            </ul>
+
+              <div class="small-12 small-centered text-center">
+                  <br />
+                  <a href="/planos/" title="More projects" class="button radius positive">ESCOLHA SEU PLANO PERSONALIZADO AGORA!</a>
+              </div>
+
+            <!-- grid -->
+          </div>
+
+        </div>
+        <!-- content: projects [end] -->
+
+        <!-- content: get_main_topics() -->
+         <!-- content and hr -->
+        <!-- content: get_main_topics() [end] -->
+
+  </div> <!-- inner_container -->
+
+  <div class="inner_container"> <!-- inner_container -->
+        <!-- content: footer [begin] -->
+        <div class="footer footer-head">
+          <!-- O que será feito?
+          <div class="row">
+            <div class="small-7 columns">
+              <h4>Mantenha-se atualizado sobre as novidades do hipy</h4>
+              <p class="margintopminus10px">Receba mensalmente os destaques do meu <strong>AWS Stuff Reviews</strong>. Leia a última edição &gt;&gt;</p>
+            </div>
+            <div class="small-5 columns">
+              <div class="row collapse paddingtop-20px">
+                <div class="small-9 columns">
+                  <input type="text" placeholder="voce@example.com">
+                </div>
+                <div class="small-3 columns">
+                  <a href="#" class="button postfix">Assinar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+            -->
+        </div>
+
+        <div class="footer footer-resume">
+          <div class="row">
+            <div class="medium-3 small-12 large-3 columns">
+              <div class="box-items">
+                <p class="text-center">
+                    <img src="{% static 'img/logo_small.png' %}" />
+                    <br /><span class="address">O Engraxate - Brasília, DF - 70258-070</span>
+                </p>
+              </div>
+            </div>
+            <div class="medium-3 small-12 large-3 columns">
+                <h6 class="legends">OEngraxate.com</h6>
+                <ul class="legends">
+                    <li><a href="/">Página Inicial</a></li>
+                    <li><a href="/planos/">Assinar/Renovar</a></li>
+                    <li><a href="/post/parceria-com-o-engraxate/">Parceria</a></li>
+                    <li><a href="/imprensa/">Imprensa/Mídia</a></li>
+                    <!--<li>Afiliados</li>-->
+                    <hr class="show-for-small" />
+                </ul>
+            </div>
+            <div class="medium-3 small-12 large-3 columns">
+              <div class="box-border-left">
+                <h6 class="legends">Contato e Suporte</h6>
+                <ul class="legends">
+                  <li><i class="fa fa-envelope"></i>&nbsp;<a title="Fale Conosco" href="#modal">Fale Conosco</a></li>
+                  <li><i class="fa fa-phone"></i>&nbsp;<a title="Contato telefônico" href="#">+55 61 9647-0547</a></li>
+                </ul>
+                  <hr class="show-for-small" />
+                  <br />
+                <h6 class="legends">Jurídico</h6>
+                <ul class="legends">
+                  <li><i class="fa fa-legal"></i>&nbsp;<a title="Termos de Uso" href="/post/termos-de-uso">Termos de Uso</a></li>
+                  <li><i class="fa fa-eye"></i>&nbsp;<a title="Política de Privacidade" href="/post/politica-de-privacidade/">Política de Privacidade</a></li>
+                  <hr class="show-for-small" />
+                </ul>
+              </div>
+            </div>
+            <div class="medium-3 small-12 large-3 columns">
+              <div class="box-border-left">
+                <h6 class="legends">Social</h6>
+                <ul class=" legends">
+                  <li><i class="fa fa-facebook-square"></i>&nbsp;<a href="http://www.facebook.com/oengraxate" title="Facebook" target="_blank">Facebook</a>&nbsp;</li>
+                  <li><i class="fa fa-twitter"></i>&nbsp;<a href="http://twitter.com/oengraxate" title="Twitter" target="_blank">Twitter</a>&nbsp;</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer footer-links">
+          <div class="row">
+            <div class="large-12 columns">
+              <span class="">startup supported by hipy.co
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- content: projects [end] -->
+
+
+         <!-- modal to select categories -->
+         <div id="categories" class="reveal-modal medium" data-reveal>
+
+         </div>
+
+         <div id="eita" class="reveal-modal">
+
+         </div>
+  </div>
+
+  {% include 'includes/assets_pos_loaded.html' %}
+
+
+  </body>
+</html>

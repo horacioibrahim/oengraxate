@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/foundation/foundation.min.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static 'js/foundation/foundation.offcanvas.js' %}"></script>
+<script src="{% static 'js/vex/vex.combined.min.js' %}"></script>
+<script>vex.defaultOptions.className = 'vex-theme-plain';</script>
+
+<script>
+  $(function() {
+    //source:http://css-tricks.com/snippets/jquery/smooth-scrolling/
+    $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+</script>
+
+<script>
+$(document).foundation();
+$(document).foundation('reveal').init();
+</script>
