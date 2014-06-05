@@ -4,7 +4,6 @@ settings_dev.py
 .project
 *.bak
 bin
-.sass-cache
 build
 include
 lib
